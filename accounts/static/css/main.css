@@ -1,0 +1,24 @@
+body {
+    background-color: #ebeff5;
+}
+
+main {
+    margin: 15px;
+}
+
+header.main-page {
+    border-bottom: 1px solid lightgray;
+    margin-bottom: 20px;
+}
+
+#total-orders {
+    background-color: #4cb4c7;
+}
+
+#orders-delivered {
+    background-color: #7abecc;
+}
+
+#orders-pending {
+    background-color: #7cd1c0;
+}

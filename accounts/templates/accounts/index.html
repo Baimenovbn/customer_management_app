@@ -1,0 +1,101 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+<section class="row">
+
+    <section class="col-md">
+        <section class="cart text-center text-white mb-3 rounded" id="total-orders">
+            <header class="card-header">
+                <h5>Total Orders</h5>
+            </header>
+            <section class="card-body">
+                <h3 class="card-title">{{ total_orders }}</h3>
+            </section>
+        </section>
+    </section>
+
+    <section class="col-md">
+        <section class="cart text-center text-white mb-3 rounded" id="orders-delivered">
+            <header class="card-header">
+                <h5>Orders Delivered</h5>
+            </header>
+            <section class="card-body">
+                <h3 class="card-title">{{ delivered }}</h3>
+            </section>
+        </section>
+    </section>
+
+    <section class="col-md">
+        <section class="cart text-center text-white mb-3 rounded" id="orders-pending">
+            <header class="card-header">
+                <h5>Orders Pending</h5>
+            </header>
+            <section class="card-body">
+                <h3 class="card-title">{{ pending }}</h3>
+            </section>
+        </section>
+    </section>
+
+</section>
+
+
+<section class="row">
+
+    <section class="col-md-5">
+        <header class="main-page"><h5>CUSTOMERS:</h5></header>
+        <div class="card card-body">
+            <a href="%" class="btn btn-primary btn-sm btn-block">Create Customer</a>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th>Customer</th>
+                        <th>Orders</th>
+                        <th>Customer Page</th>
+                    </tr>
+                    <tbody>
+                        {% for customer in customers %}
+                        <tr>
+                            <td>{{ customer.name }}</td>
+                            <td>{{ customer.phone }}</td>
+                            <td><a href="{% url 'customer' customer.id %}" class="btn btn-sm btn-info">View</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </thead>
+            </table>
+        </div>
+    </section>
+
+    <section class="col-md-7">
+        <header class="main-page"><h5>LAST 5 ORDERS: </h5></header>
+        <section class="card card-body">
+            <a href="#" class="btn btn-primary btn-sm btn-block">Create Order</a>
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Date Ordered</th>
+                        <th>Status</th>
+                        <th>Update</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <td>{{ order.product }}</td>
+                        <td>{{ order.date_created }}</td>
+                        <td>{{ order.status }}</td>
+                        <td><a href="#" class="btn btn-sm btn-info">Update</a></td>
+                        <td><a href="#" class="btn btn-danger btn-sm">Delete</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </section>
+    
+</section>
+
+{% endblock %}
