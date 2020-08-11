@@ -20,9 +20,20 @@
             <li class="nav-item active">
               <a class="nav-link" href="{% url 'products' %}">Products <span class="sr-only">(current)</span></a>
             </li>
+            <li>
+            </li>
           </ul>
         </div>
+        
+        {% if user.is_authenticated %}
+        <span id="hello-msg" >Hello, {{ user.username }}</span>
+        <span><a class="btn btn-sm btn-danger ml-4" href="{% url 'logout' %}">Log Out</a></span>
+        {% else %}
+        <a class="btn btn-sm btn-success ml-4" href="{% url 'login' %}">Log In</a>
+        {% endif %}
+        
     </nav>
+
 
     <main>
         {% block content %}

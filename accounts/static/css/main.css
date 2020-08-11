@@ -22,3 +22,8 @@ header.main-page {
 #orders-pending {
     background-color: #7cd1c0;
 }
+
+#hello-msg {
+    color: white;
+    font-size: 18px;
+}
