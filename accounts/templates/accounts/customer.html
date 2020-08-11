@@ -8,8 +8,8 @@
 	<section class="col-md">
 		<div class="card card-body">
 			<header><h5>Customer:</h5></header>
-			<a class="btn btn-outline-info  btn-sm btn-block" href="">Update Customer</a>
-			<a class="btn btn-outline-danger  btn-sm btn-block" href="">Delete Customer</a>
+			<a class="btn btn-outline-info btn-sm btn-block" href="">Update Customer</a>
+			<a class="btn btn-outline-info btn-sm btn-block" href="{% url 'create_order' customer.id %}">Place Order</a>
 		</div>
 	</section>
 
@@ -33,6 +33,7 @@
 	<section class="col">
 		<div class="card card-body">
 			<form method="get">
+                {{ myFilter.form }}
 		    <button class="btn btn-primary" type="submit">Search</button>
 		  </form>
 		</div>
@@ -60,8 +61,8 @@
                         <td>{{ order.product.category }}</td>
                         <td>{{ order.date_created }}</td>
                         <td>{{ order.status }}</td>
-                        <td><a href="#" class="btn btn-sm btn-info">Update</a></td>
-                        <td><a href="#" class="btn btn-sm btn-danger">Delete</a></td>
+                        <td><a href="{% url 'update_order' order.id %}" class="btn btn-sm btn-info">Update</a></td>
+                        <td><a href="{% url 'delete_order' order.id %}" class="btn btn-sm btn-danger">Delete</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>

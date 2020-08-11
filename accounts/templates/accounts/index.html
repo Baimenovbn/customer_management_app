@@ -50,7 +50,7 @@
                 <thead>
                     <tr>
                         <th>Customer</th>
-                        <th>Orders</th>
+                        <th>Phone</th>
                         <th>Customer Page</th>
                     </tr>
                     <tbody>
@@ -70,7 +70,6 @@
     <section class="col-md-7">
         <header class="main-page"><h5>LAST 5 ORDERS: </h5></header>
         <section class="card card-body">
-            <a href="#" class="btn btn-primary btn-sm btn-block">Create Order</a>
             <table class="table table-sm">
                 <thead>
                     <tr>
@@ -87,8 +86,8 @@
                         <td>{{ order.product }}</td>
                         <td>{{ order.date_created }}</td>
                         <td>{{ order.status }}</td>
-                        <td><a href="#" class="btn btn-sm btn-info">Update</a></td>
-                        <td><a href="#" class="btn btn-danger btn-sm">Delete</a></td>
+                        <td><a href="{% url 'update_order' order.id %}" class="btn btn-sm btn-info">Update</a></td>
+                        <td><a href="{% url 'delete_order' order.id %}" class="btn btn-danger btn-sm">Delete</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>
